@@ -1,9 +1,9 @@
-<nav><a href="/">Categories</a></nav>
+<nav><a href="/">Categories</a> > <a href="/categories/<%= @category_id %>"><%= @category_title %></a></nav>
 <div class="container">
 
   <h3>Add a new post in <%= @category_title %>:</h3>
 
-    <form action="/postings/create/new/<%= @category_id %>/<%= @last_post %>" method="post">
+    <form action="/postings/create/new/<%= @category_id %>" method="post">
       <label>Title:</label>
       <input type="text" name="posting[title]">
       <br>

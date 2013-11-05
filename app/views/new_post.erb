@@ -7,17 +7,17 @@
   <p>Post information:</p>
 
   <div class="post_info">
-    <p class="bold"><%= @post_title %></p>
-    <p><%= @post_body %></p>
-    <p class="small thin"><%= @post_location %></p>
+    <p class="bold"><%= @post.title %></p>
+    <p><%= @post.body %></p>
+    <p class="small thin"><%= @post.location %></p>
     <% unless @post_price.nil? %>
-      <p class="smaller thin">$<%= @post_price %></p>
+      <p class="smaller thin">$<%= @post.price %></p>
     <% end %>
   </div>
 
   <h5>Delete Post:</h5>
 
-  <form action="/delete/<%= @category_id %>/<%= @post_id %>" method="post">
+  <form action="/delete/<%= @category_id %>/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Post">
   </form>
@@ -27,13 +27,13 @@
   <form action="/update/<%= @category_id %>/<%= @post_id %>" method="post">
     <input type="hidden" name="_method" value="put">
     <label>Title:</label>
-    <input type="text" name="title">
+    <input type="text" name="title" value="<%= @post.title %>">
     <br>
     <label>Body:</label>
-    <textarea name="body"></textarea>
+    <textarea name="body"><%= @post.body %></textarea>
     <br>
     <label>Location:</label>
-    <input type="text" name="location">
+    <input type="text" name="location" value="<%= @post.location %>">
     <br>
 
     <% unless @category_title == "Personals" %>
