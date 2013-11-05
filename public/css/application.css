@@ -31,18 +31,22 @@ h5 {
 }
 label {
   font-weight: 600;
-}
-label:first-child {
-  margin-right: 9px;
+  display: inline-block;
+  width: 80px;
 }
 input,textarea {
   width: 210px;
   margin: 5px 0;
 }
-
-input.button {
-  margin-left: 50px;
-}
 .bold {
   font-weight: 600;
+}
+.thin {
+  font-weight: 300;
+}
+.small {
+  font-size: 0.85em;
+}
+.smaller {
+  font-size: 0.8em;
 }

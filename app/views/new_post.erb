@@ -6,8 +6,12 @@
 
   <p>Post information:</p>
 
-  <p><%= @post_title %></p>
+  <p class="bold"><%= @post_title %></p>
   <p><%= @post_body %></p>
+  <p class="small thin"><%= @post_location %></p>
+  <% unless @post_price.nil? %>
+    <p class="smaller thin">$<%= @post_price %></p>
+  <% end %>
 
   <h5>Delete Post:</h5>
 
@@ -20,11 +24,25 @@
 
   <form action="/update/<%= @category_id %>/<%= @post_id %>" method="post">
     <input type="hidden" name="_method" value="put">
-    <label>Title:</label><br>
-    <input type="text" name="title"><br>
-    <label>Body:</label><br>
-    <textarea name="body"></textarea><br>
+    <label>Title:</label>
+    <input type="text" name="title">
+    <br>
+    <label>Body:</label>
+    <textarea name="body"></textarea>
+    <br>
+    <label>Location:</label>
+    <input type="text" name="location">
+    <br>
 
+    <% unless @category_title == "Personals" %>
+
+    <label>Price:</label>
+    <input type="number" name="price">
+    <br>
+
+    <% end %>
+
+    <label></label>
     <input type="submit" value="Update Post">
 
   </form>

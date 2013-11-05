@@ -28,9 +28,11 @@ post '/postings/create/new/:category/:post' do
   @post_title = params[:posting][:title]
   @post_body = params[:posting][:body]
   @category_id = params[:category]
+  @post_price = params[:posting][:price]
+  @post_location = params[:posting][:location]
   @category_title = Category.find(@category_id)[:title]
 
-  post = Posting.create(title: @post_title, body: @post_body, category_id: params[:category])
+  post = Posting.create(title: @post_title, body: @post_body, category_id: params[:category], price: @post_price, location: @post_location)
 
   @post_id = post[:id]
 
@@ -42,6 +44,8 @@ get '/postings/create/new/:category/:post' do
 
   @post_title = post.title
   @post_body = post.body
+  @post_price = post.price
+  @post_location = post.location
   @post_id = params[:post]
 
   @category_id = params[:category]
@@ -56,12 +60,17 @@ delete '/delete/:category_id/:post_id' do
 end
 
 put '/update/:category_id/:post_id' do
-  Posting.find(params[:post_id]).update_attributes title: params[:title], body: params[:body], category_id: params[:category_id]
-  redirect '/'
+  @category_id = params[:category_id]
+  @post_id = params[:post_id]
+  @post = Posting.find(@post_id)
+  @post.update_attributes title: params[:title], body: params[:body], category_id: @category_id, location: params[:location], price: params[:price]
+  
+  @category_title = Category.find(@category_id).title
+  erb :single_post
 end
 
 helpers do
   def post_exists?
-    Posting.all.nil?
+    Posting.all == []
   end
 end

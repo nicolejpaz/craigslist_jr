@@ -10,19 +10,27 @@
       <label>Body:</label>
       <textarea name="posting[body]"></textarea>
       <br>
+      <label>Location:</label>
+      <input type="text" name="posting[location]">
+      <br>
 
-      <input type="submit" class="button" value="Create Post">
+      <% unless @category_title == "Personals" %>
+
+      <label>Price:</label>
+      <input type="number" name="posting[price]">
+      <br>
+
+      <% end %>
+
+      <label></label>
+      <input type="submit" value="Create Post">
     </form>
 
   <h3>Postings in <%= @category_title %>:</h3>
 
   <ul class="bold">
-    <% unless post_exists? %>
-      <% @postings.each do |post| %>
-        <li><a href="/postings/<%= @category_id %>/<%= post.id %>"><%= post.title %></a></li>
-      <% end %>
-    <% else %>
-      <li>There are no posts to display.</li>
+    <% @postings.each do |post| %>
+      <li><a href="/postings/<%= @category_id %>/<%= post.id %>"><%= post.title %></a> - <% unless post.price.nil? %><span class="price">$<%= post.price %></span> <% end %><span class="thin">(<%= post.location %>)</span></li>
     <% end %>
   </ul>
 
