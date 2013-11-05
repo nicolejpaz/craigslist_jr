@@ -1,9 +1,48 @@
-.container {
+body {
+  background-color: #ccc;
+}
+.container, header, nav, footer {
+  padding: 0 10px;
+}
+.wrapper {
+  background-color: #fff;
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 5px 5px 15px 5px;
+  box-shadow: 5px 5px 5px #999;
 }
-th {
-  text-align: left;
+footer {
+  text-align: center;
+}
+li {
+  list-style-type: none;
+  padding: 3px 0;
+}
+a {
+  color: #02839b;
+  text-decoration: none;
+  transition: 1s;
+}
+a:hover {
+  color: #ff7800;
+}
+h5 {
+  font-size: 15px;
+}
+label {
+  font-weight: 600;
+}
+label:first-child {
+  margin-right: 9px;
+}
+input,textarea {
+  width: 210px;
+  margin: 5px 0;
+}
+
+input.button {
+  margin-left: 50px;
+}
+.bold {
+  font-weight: 600;
 }

@@ -1,0 +1,10 @@
+<nav><a href="/">Categories</a> > <a href="/categories/<%= @category_id %>"><%= @category_title %></a></nav>
+
+<div class="container">
+
+  <% if @post %>
+    <h4><%= @post.title %></h4>
+    <p><%= @post.body %></p>
+  <% end %>
+
+</div>

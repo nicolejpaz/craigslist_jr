@@ -1,0 +1,32 @@
+<nav><a href="/">Categories</a> > <a href="/categories/<%= @category_id %>"><%= @category_title %></a></nav>
+<div class="container">
+
+  <h3>Success!</h3>
+  <p>Your post has been created in <%= @category %>. Please retain this page in order to edit or delete your post.</p>
+
+  <p>Post information:</p>
+
+  <p><%= @post_title %></p>
+  <p><%= @post_body %></p>
+
+  <h5>Delete Post:</h5>
+
+  <form action="/delete/<%= @category_id %>/<%= @post_id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Post">
+  </form>
+
+  <h5>Update Post:</h5>
+
+  <form action="/update/<%= @category_id %>/<%= @post_id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label>Title:</label><br>
+    <input type="text" name="title"><br>
+    <label>Body:</label><br>
+    <textarea name="body"></textarea><br>
+
+    <input type="submit" value="Update Post">
+
+  </form>
+
+</div>
