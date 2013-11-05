@@ -6,12 +6,14 @@
 
   <p>Post information:</p>
 
-  <p class="bold"><%= @post_title %></p>
-  <p><%= @post_body %></p>
-  <p class="small thin"><%= @post_location %></p>
-  <% unless @post_price.nil? %>
-    <p class="smaller thin">$<%= @post_price %></p>
-  <% end %>
+  <div class="post_info">
+    <p class="bold"><%= @post_title %></p>
+    <p><%= @post_body %></p>
+    <p class="small thin"><%= @post_location %></p>
+    <% unless @post_price.nil? %>
+      <p class="smaller thin">$<%= @post_price %></p>
+    <% end %>
+  </div>
 
   <h5>Delete Post:</h5>
 

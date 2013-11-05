@@ -3,12 +3,15 @@
 <div class="container">
 
   <% if @post %>
-    <h4><%= @post.title %></h4>
-    <p><%= @post.body %></p>
-    <% unless @post.price.nil? %>
-      <p class="small">$<%= @post.price %></p>
-    <% end %>
-    <p class="smaller"><%= @post.location %></p>
+    <div class="post_info">
+      <p class="smaller right">Updated at: <%= @post.updated_at %></p>
+      <h4><%= @post.title %></h4>
+      <p><%= @post.body %></p>
+      <% unless @post.price.nil? %>
+        <p class="small">$<%= @post.price %></p>
+      <% end %>
+      <p class="smaller"><%= @post.location %></p>
+    </div>
   <% end %>
 
 </div>

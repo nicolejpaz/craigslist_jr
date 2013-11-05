@@ -72,9 +72,3 @@ put '/update/:category_id/:post_id' do
   @category_title = Category.find(@category_id).title
   erb :single_post
 end
-
-helpers do
-  def post_exists?
-    Posting.all == []
-  end
-end
