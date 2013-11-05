@@ -13,6 +13,8 @@ gem 'thin'
 gem 'activesupport'
 gem 'activerecord'
 
+gem 'friendly_id'
+
 gem 'rake'
 
 gem 'shotgun'

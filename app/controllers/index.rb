@@ -36,19 +36,23 @@ post '/postings/create/new/:category/:post' do
 
   @post_id = post[:id]
 
-  erb :new_post
+  # erb :new_post
+  redirect "/postings/#{post.slug}"
 end
 
-get '/postings/create/new/:category/:post' do
-  post = Posting.find(params[:post])
+# get '/postings/create/new/:category/:post' do
+get '/postings/:post_slug' do 
+  @post_id = Posting.find_by_slug(params[:post_slug]).id
+  post = Posting.find(@post_id)
 
   @post_title = post.title
   @post_body = post.body
   @post_price = post.price
   @post_location = post.location
-  @post_id = params[:post]
+  # @post_id = params[:post]
 
-  @category_id = params[:category]
+  # @category_id = params[:category]
+  @category_id = post.category_id
   @category_title = Category.find(@category_id).title
 
   erb :new_post
